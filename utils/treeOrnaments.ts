@@ -1,4 +1,8 @@
-import { faceIndices, layerIndices } from "@/constants/christmasTree";
+import {
+  faceIndices,
+  layerIndices,
+  treeOrnamentsConfig,
+} from "@/constants/christmasTree";
 
 export type TreeOrnament = {
   id: string;
@@ -28,31 +32,36 @@ const createId = () => {
 export const generateTreeOrnaments = (): TreeOrnament[] => {
   const ornaments: TreeOrnament[] = [];
 
-  const minPerFace = 2;
-  const maxPerFace = 8;
-  const triangleHeight = 300;
-  const triangleHalfWidth = 150;
-  const yMaxLimit = 260;
+  const {
+    edgePadding,
+    maxPerFace,
+    minPerFace,
+    sizeMax,
+    sizeMin,
+    triangleHalfWidth,
+    triangleHeight,
+    yMax,
+    yMaxLimit,
+    yMin,
+  } = treeOrnamentsConfig;
 
   for (const layerIndex of layerIndices) {
     for (const faceIndex of faceIndices) {
       const perFaceCount = getRandomInt(minPerFace, maxPerFace);
 
       for (let index = 0; index < perFaceCount; index += 1) {
-        const size = getRandomInt(25, 50);
+        const size = getRandomInt(sizeMin, sizeMax);
 
-        const yMinRaw = 20 + layerIndex * 10;
-        const yMaxRaw = 140 + layerIndex * 35;
-        const yMax = Math.min(yMaxLimit, yMaxRaw);
-        const yMin = Math.min(yMinRaw, yMax);
+        const safeYMax = Math.min(yMaxLimit, yMax);
+        const safeYMin = Math.min(yMin, safeYMax);
 
-        const tMin = yMin / triangleHeight;
-        const tMax = yMax / triangleHeight;
+        const tMin = safeYMin / triangleHeight;
+        const tMax = safeYMax / triangleHeight;
         const u = randomFloat(tMin * tMin, tMax * tMax);
         const t = Math.sqrt(u);
         const y = Math.round(t * triangleHeight);
 
-        const maxHalfWidth = triangleHalfWidth * t - size / 2 - 6;
+        const maxHalfWidth = triangleHalfWidth * t - size / 2 - edgePadding;
         const x =
           maxHalfWidth <= 0
             ? 0
