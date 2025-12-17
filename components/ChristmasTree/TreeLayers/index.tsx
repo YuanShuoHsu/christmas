@@ -18,9 +18,10 @@ const TreeLayers = () => (
             aria-hidden="true"
             className="absolute top-0 left-0 w-full h-full bg-linear-to-r from-[#69c069] to-[#77dd77] [clip-path:polygon(50%_0%,0%_100%,100%_100%)] origin-bottom border-b-10 border-b-[#00000019] transform-[rotateY(calc(90deg*var(--i)))_rotateX(30deg)_translateZ(173px)]"
             style={cssVar("--i", i)}
-          />
+          >
+            <TreeOrnaments layerIndex={j} faceIndex={i} />
+          </span>
         ))}
-        <TreeOrnaments layerIndex={j} />
       </div>
     ))}
   </>
