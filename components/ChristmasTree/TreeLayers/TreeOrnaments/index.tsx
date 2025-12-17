@@ -1,19 +1,16 @@
 import Image from "next/image";
 
+import { useChristmasTreeStore } from "@/stores/christmasTreeStoreProvider";
+
 import { cssVar } from "@/utils/cssVar";
-import type { TreeOrnament } from "@/utils/treeOrnaments";
 
 interface TreeOrnamentsProps {
   layerIndex: number;
-  ornaments: TreeOrnament[];
-  photoUrl: string | null;
 }
 
-const TreeOrnaments = ({
-  layerIndex,
-  ornaments,
-  photoUrl,
-}: TreeOrnamentsProps) => {
+const TreeOrnaments = ({ layerIndex }: TreeOrnamentsProps) => {
+  const ornaments = useChristmasTreeStore((state) => state.ornaments);
+  const photoUrl = useChristmasTreeStore((state) => state.photoUrl);
   if (!photoUrl) return null;
 
   const layerOrnaments = ornaments.filter(
