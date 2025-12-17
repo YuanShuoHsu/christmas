@@ -208,6 +208,40 @@ node --eval "fs.writeFileSync('.husky/pre-commit','pnpm exec lint-staged\n')"
 }
 ```
 
+## Shadcn
+
+```bash
+# https://ui.shadcn.com/docs/installation/next
+pnpm dlx shadcn@latest init
+
+✔ Preflight checks.
+✔ Verifying framework. Found Next.js.
+✔ Validating Tailwind CSS config. Found v4.
+✔ Validating import alias.
+✔ Which color would you like to use as the base color? › Zinc
+✔ Writing components.json.
+✔ Checking registry.
+✔ Updating CSS variables in app/globals.css
+✔ Installing dependencies.
+✔ Created 1 file:
+  - lib/utils.ts
+
+Success! Project initialization completed.
+You may now add components.
+
+pnpm dlx shadcn@latest add button
+pnpm dlx shadcn@latest add input
+```
+
+## Zustand
+
+```bash
+# https://zustand.docs.pmnd.rs/getting-started/introduction
+pnpm add zustand
+
+# https://zustand.docs.pmnd.rs/guides/nextjs
+```
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
