@@ -1,10 +1,6 @@
-import type { CSSProperties } from "react";
+import { faceIndices, layerIndices } from "@/constants/christmasTree";
 
-const layerIndices = [0, 1, 2, 3] as const;
-const faceIndices = [0, 1, 2, 3] as const;
-
-const cssVar = (name: string, value: number) =>
-  ({ [name]: value }) as CSSProperties;
+import { cssVar } from "@/utils/cssVar";
 
 const Home = () => (
   <main className="min-h-screen w-screen overflow-hidden bg-[#e8ffe8] flex justify-center items-center">
