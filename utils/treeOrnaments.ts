@@ -9,10 +9,15 @@ export type TreeOrnament = {
   size: number;
 };
 
-const randomInt = (min: number, max: number) => {
-  const safeMin = Math.ceil(min);
-  const safeMax = Math.floor(max);
-  return Math.floor(Math.random() * (safeMax - safeMin + 1)) + safeMin;
+const getRandomInt = (min: number, max: number) => {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+
+  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+};
+
+const randomFloat = (min: number, max: number) => {
+  return Math.random() * (max - min) + min;
 };
 
 const createId = () => {
@@ -25,22 +30,33 @@ export const generateTreeOrnaments = (): TreeOrnament[] => {
 
   const minPerFace = 2;
   const maxPerFace = 8;
+  const triangleHeight = 300;
+  const triangleHalfWidth = 150;
+  const yMaxLimit = 260;
 
   for (const layerIndex of layerIndices) {
     for (const faceIndex of faceIndices) {
-      const perFaceCount = randomInt(minPerFace, maxPerFace);
+      const perFaceCount = getRandomInt(minPerFace, maxPerFace);
 
       for (let index = 0; index < perFaceCount; index += 1) {
-        const size = randomInt(28, 52);
+        const size = getRandomInt(25, 50);
 
-        const yMin = 20 + layerIndex * 10;
-        const yMax = 140 + layerIndex * 35;
-        const y = randomInt(yMin, Math.min(260, yMax));
+        const yMinRaw = 20 + layerIndex * 10;
+        const yMaxRaw = 140 + layerIndex * 35;
+        const yMax = Math.min(yMaxLimit, yMaxRaw);
+        const yMin = Math.min(yMinRaw, yMax);
 
-        const triangleT = y / 300;
-        const maxHalfWidth = 150 * triangleT - size / 2 - 6;
+        const tMin = yMin / triangleHeight;
+        const tMax = yMax / triangleHeight;
+        const u = randomFloat(tMin * tMin, tMax * tMax);
+        const t = Math.sqrt(u);
+        const y = Math.round(t * triangleHeight);
+
+        const maxHalfWidth = triangleHalfWidth * t - size / 2 - 6;
         const x =
-          maxHalfWidth <= 0 ? 0 : randomInt(-maxHalfWidth, maxHalfWidth);
+          maxHalfWidth <= 0
+            ? 0
+            : getRandomInt(-Math.floor(maxHalfWidth), Math.floor(maxHalfWidth));
 
         ornaments.push({
           id: createId(),
