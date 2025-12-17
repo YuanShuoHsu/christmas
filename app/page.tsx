@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import ChristmasTree from "@/components/ChristmasTree";
 import PhotoUploadControls from "@/components/PhotoUploadControls";
 
-import { useChristmasTreeStore } from "@/stores/christmasTreeStore";
+import { useChristmasTreeStore } from "@/stores/christmasTreeStoreProvider";
 
 const Home = () => {
   const clearPhoto = useChristmasTreeStore((state) => state.clearPhoto);
