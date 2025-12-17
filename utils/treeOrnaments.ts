@@ -20,14 +20,9 @@ const createId = () => {
   return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 };
 
-export const generateTreeOrnaments = (
-  options: {
-    minCount?: number;
-    maxCount?: number;
-  } = {},
-): TreeOrnament[] => {
-  const minCount = options.minCount ?? 6;
-  const maxCount = options.maxCount ?? 16;
+export const generateTreeOrnaments = (): TreeOrnament[] => {
+  const minCount = 50;
+  const maxCount = 100;
   const count = randomInt(minCount, maxCount);
 
   const ornaments: TreeOrnament[] = [];
