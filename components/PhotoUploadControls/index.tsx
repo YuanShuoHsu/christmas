@@ -5,19 +5,20 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-import { useChristmasTreeStore } from "@/stores/christmasTreeStore";
+import { useChristmasTreeStore } from "@/stores/christmasTreeStoreProvider";
 
 const PhotoUploadControls = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const {
-    clearPhoto,
-    photoName,
-    photoUrl,
-    randomizeOrnaments,
-    setPhotoFromFile,
-  } = useChristmasTreeStore();
-
+  const photoName = useChristmasTreeStore((state) => state.photoName);
+  const photoUrl = useChristmasTreeStore((state) => state.photoUrl);
+  const clearPhoto = useChristmasTreeStore((state) => state.clearPhoto);
+  const randomizeOrnaments = useChristmasTreeStore(
+    (state) => state.randomizeOrnaments,
+  );
+  const setPhotoFromFile = useChristmasTreeStore(
+    (state) => state.setPhotoFromFile,
+  );
   const hasPhoto = Boolean(photoUrl);
 
   return (

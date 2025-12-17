@@ -4,10 +4,11 @@ import TreeLayers from "@/components/ChristmasTree/TreeLayers";
 import TreeShadow from "@/components/ChristmasTree/TreeShadow";
 import TreeTrunk from "@/components/ChristmasTree/TreeTrunk";
 
-import { useChristmasTreeStore } from "@/stores/christmasTreeStore";
+import { useChristmasTreeStore } from "@/stores/christmasTreeStoreProvider";
 
 const ChristmasTree = () => {
-  const { ornaments, photoUrl } = useChristmasTreeStore();
+  const ornaments = useChristmasTreeStore((state) => state.ornaments);
+  const photoUrl = useChristmasTreeStore((state) => state.photoUrl);
 
   return (
     <div
