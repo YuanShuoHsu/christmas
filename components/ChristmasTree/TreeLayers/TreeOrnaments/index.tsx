@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { useChristmasTreeStore } from "@/stores/christmasTreeStoreProvider";
+import { useChristmasTreeStore } from "@/providers/christmasTreeStoreProvider";
 
 import { cssVar } from "@/utils/cssVar";
 import type { TreeOrnament } from "@/utils/treeOrnaments";

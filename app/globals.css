@@ -46,6 +46,15 @@
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
+@keyframes christmasShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
 @keyframes treeSpin {
   0% {
     transform: rotateX(-20deg) rotateY(360deg);
@@ -57,7 +66,11 @@
 
 @layer utilities {
   .animate-tree-spin {
-    animation: treeSpin 6s linear infinite;
+    animation: treeSpin 12s linear infinite;
+  }
+
+  .animate-christmas-shine {
+    animation: christmasShine 3s linear infinite;
   }
 }
 

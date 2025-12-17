@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
 import "./globals.css";
 
-import { ChristmasTreeStoreProvider } from "@/stores/christmasTreeStoreProvider";
+import { ChristmasTreeStoreProvider } from "@/providers/christmasTreeStoreProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

@@ -5,17 +5,19 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-import { useChristmasTreeStore } from "@/stores/christmasTreeStoreProvider";
+import { useChristmasTreeStore } from "@/providers/christmasTreeStoreProvider";
 
 const PhotoUploadControls = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
+  const displayName = useChristmasTreeStore((state) => state.displayName);
   const photoName = useChristmasTreeStore((state) => state.photoName);
   const photoUrl = useChristmasTreeStore((state) => state.photoUrl);
   const clearPhoto = useChristmasTreeStore((state) => state.clearPhoto);
   const randomizeOrnaments = useChristmasTreeStore(
     (state) => state.randomizeOrnaments,
   );
+  const setDisplayName = useChristmasTreeStore((state) => state.setDisplayName);
   const setPhotoFromFile = useChristmasTreeStore(
     (state) => state.setPhotoFromFile,
   );
@@ -36,6 +38,14 @@ const PhotoUploadControls = () => {
           }}
           ref={inputRef}
           type="file"
+        />
+        <Input
+          aria-label="名字"
+          className="max-w-30"
+          onChange={(event) => setDisplayName(event.currentTarget.value)}
+          placeholder="輸入名字"
+          type="text"
+          value={displayName}
         />
         <Button
           onClick={() => inputRef.current?.click()}
@@ -68,7 +78,7 @@ const PhotoUploadControls = () => {
             清除
           </Button>
         ) : null}
-        <span className={"text-sm"}>{photoName || "選一張圖片當裝飾"}</span>
+        <span className="text-sm">{photoName || "選一張圖片當裝飾"}</span>
       </div>
     </aside>
   );

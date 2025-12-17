@@ -6,6 +6,7 @@ import {
 } from "@/utils/treeOrnaments";
 
 export type ChristmasTreeState = {
+  displayName: string;
   ornaments: TreeOrnament[];
   photoName: string | null;
   photoUrl: string | null;
@@ -14,12 +15,14 @@ export type ChristmasTreeState = {
 export type ChristmasTreeActions = {
   clearPhoto: () => void;
   randomizeOrnaments: () => void;
+  setDisplayName: (displayName: string) => void;
   setPhotoFromFile: (file: File) => void;
 };
 
 export type ChristmasTreeStore = ChristmasTreeState & ChristmasTreeActions;
 
 export const defaultInitState: ChristmasTreeState = {
+  displayName: "",
   ornaments: [],
   photoName: null,
   photoUrl: null,
@@ -41,6 +44,9 @@ export const createChristmasTreeStore = (
       if (!photoUrl) return;
 
       set({ ornaments: generateTreeOrnaments() });
+    },
+    setDisplayName: (displayName) => {
+      set({ displayName });
     },
     setPhotoFromFile: (file) => {
       const { photoUrl } = get();
