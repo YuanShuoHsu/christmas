@@ -15,7 +15,7 @@ const DisplayNameBanner = () => {
       >
         ✦
       </span>
-      <span className="truncate text-xl font-extrabold tracking-wide text-transparent bg-clip-text bg-linear-to-r from-red-500 via-fuchsia-400 to-sky-400 bg-size-[200%_100%] animate-christmas-shine motion-reduce:animate-none [text-shadow:0_0_12px_rgba(244,114,182,0.45),0_0_22px_rgba(239,68,68,0.30),0_0_24px_rgba(56,189,248,0.35)]">
+      <span className="truncate text-xl font-extrabold tracking-wide text-transparent bg-clip-text bg-linear-to-r from-red-500 via-fuchsia-400 to-sky-400 bg-size-[200%_100%] animate-christmas-shine motion-reduce:animate-none">
         {nameToShow}
       </span>
       <span
