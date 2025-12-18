@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 
 import ChristmasTree from "@/components/ChristmasTree";
+import DisplayNameBanner from "@/components/DisplayNameBanner";
 import PhotoUploadControls from "@/components/PhotoUploadControls";
 
 import { useChristmasTreeStore } from "@/providers/christmasTreeStoreProvider";
@@ -15,9 +16,12 @@ const Home = () => {
   }, [clearPhoto]);
 
   return (
-    <main className="relative min-h-screen w-screen overflow-hidden bg-[#e8ffe8] flex justify-center items-center">
+    <main className="relative min-h-screen w-screen overflow-hidden bg-[#e8ffe8] flex flex-col justify-center items-center">
       <PhotoUploadControls />
-      <ChristmasTree />
+      <div className="relative flex flex-col items-center">
+        <ChristmasTree />
+        <DisplayNameBanner />
+      </div>
     </main>
   );
 };
