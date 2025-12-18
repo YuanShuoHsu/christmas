@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import { ChristmasTreeStoreProvider } from "@/providers/christmasTreeStoreProvider";
+import { SceneStoreProvider } from "@/providers/sceneStoreProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ChristmasTreeStoreProvider>{children}</ChristmasTreeStoreProvider>
+        <ChristmasTreeStoreProvider>
+          <SceneStoreProvider>{children}</SceneStoreProvider>
+        </ChristmasTreeStoreProvider>
       </body>
     </html>
   );
