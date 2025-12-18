@@ -59,4 +59,3 @@ export const createSceneStore = (initState: SceneState = defaultInitState) => {
     },
   }));
 };
-

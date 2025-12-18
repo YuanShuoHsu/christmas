@@ -31,4 +31,3 @@ export function useSceneStore<T>(selector: (store: SceneStore) => T): T {
 
   return useStore(store, selector);
 }
-

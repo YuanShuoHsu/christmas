@@ -26,6 +26,9 @@ const SceneSizeControls = () => {
           <Minus />
           縮小
         </Button>
+        <span className="text-sm tabular-nums text-muted-foreground">
+          {scalePercent}%
+        </span>
         <Button
           aria-label="放大場景"
           onClick={increaseSceneScale}
@@ -36,13 +39,9 @@ const SceneSizeControls = () => {
           <Plus />
           放大
         </Button>
-        <span className="text-sm tabular-nums text-muted-foreground">
-          {scalePercent}%
-        </span>
       </div>
     </aside>
   );
 };
 
 export default SceneSizeControls;
-
