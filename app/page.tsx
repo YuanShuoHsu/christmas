@@ -20,7 +20,7 @@ const Home = () => {
 
   return (
     <main className="min-h-dvh flex flex-col bg-[#e8ffe8] overflow-hidden">
-      <div
+      <section
         className="relative flex-1 flex justify-center items-center transition-transform duration-200 will-change-transform"
         style={{
           transform: `scale(${sceneScale})`,
@@ -29,11 +29,14 @@ const Home = () => {
       >
         <ChristmasTree />
         <DisplayNameBanner />
-      </div>
-      <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-2">
+      </section>
+      <aside
+        aria-label="控制面板"
+        className="p-4 w-full max-w-5xl flex justify-center items-stretch gap-4"
+      >
         <PhotoUploadControls />
         <SceneSizeControls />
-      </div>
+      </aside>
     </main>
   );
 };

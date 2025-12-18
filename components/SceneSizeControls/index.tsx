@@ -14,33 +14,31 @@ const SceneSizeControls = () => {
   const scalePercent = Math.round(sceneScale * 100);
 
   return (
-    <aside aria-label="場景大小控制" className="p-4">
-      <div className="flex flex-wrap items-center gap-2 rounded-xl border border-border/50 bg-background/70 p-4 shadow-lg backdrop-blur">
-        <Button
-          aria-label="縮小場景"
-          onClick={decreaseSceneScale}
-          size="sm"
-          type="button"
-          variant="outline"
-        >
-          <Minus />
-          縮小
-        </Button>
-        <span className="text-sm tabular-nums text-muted-foreground">
-          {scalePercent}%
-        </span>
-        <Button
-          aria-label="放大場景"
-          onClick={increaseSceneScale}
-          size="sm"
-          type="button"
-          variant="outline"
-        >
-          <Plus />
-          放大
-        </Button>
-      </div>
-    </aside>
+    <div className="flex flex-col items-stretch gap-2 rounded-xl border border-border/50 bg-background/70 p-4 shadow-lg backdrop-blur">
+      <Button
+        aria-label="放大場景"
+        onClick={increaseSceneScale}
+        size="sm"
+        type="button"
+        variant="outline"
+      >
+        <Plus />
+        放大
+      </Button>
+      <span className="text-center text-sm tabular-nums text-muted-foreground">
+        {scalePercent}%
+      </span>
+      <Button
+        aria-label="縮小場景"
+        onClick={decreaseSceneScale}
+        size="sm"
+        type="button"
+        variant="outline"
+      >
+        <Minus />
+        縮小
+      </Button>
+    </div>
   );
 };
 
