@@ -7,7 +7,7 @@ import TreeTrunk from "@/components/ChristmasTree/TreeTrunk";
 const ChristmasTree = () => (
   <div
     aria-label="3D Christmas tree"
-    className="relative top-[-150px] w-[300px] h-[300px] transform-3d before:content-['⭐'] before:absolute before:top-[-120px] before:left-[calc(50%-30px)] before:text-[4em] transform-[rotateX(-20deg)_rotateY(30deg)] animate-tree-spin motion-reduce:animate-none"
+    className="relative top-[-135px] w-[270px] h-[270px] transform-3d before:content-['⭐'] before:absolute before:top-[-108px] before:left-[calc(50%-27px)] before:text-[3.6em] transform-[rotateX(-20deg)_rotateY(30deg)] animate-tree-spin motion-reduce:animate-none"
     role="img"
   >
     <TreeLayers />
