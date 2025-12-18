@@ -22,8 +22,8 @@ export const defaultInitState: SceneState = {
   sceneScale: 1,
 };
 
-const MIN_SCALE = 0.7;
-const MAX_SCALE = 1.4;
+const MIN_SCALE = 0.5;
+const MAX_SCALE = 1.5;
 const SCALE_STEP = 0.1;
 
 export const createSceneStore = (initState: SceneState = defaultInitState) => {
