@@ -3,7 +3,7 @@ import { faceIndices } from "@/constants/christmasTree";
 import { cssVar } from "@/utils/cssVar";
 
 const TreeTrunk = () => (
-  <div className="absolute top-0 left-0 w-full h-full [transform-style:preserve-3d]">
+  <div className="absolute top-0 left-0 w-full h-full transform-3d">
     {faceIndices.map((i) => (
       <span
         key={i}
