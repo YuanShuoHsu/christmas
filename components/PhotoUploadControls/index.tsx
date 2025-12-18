@@ -24,10 +24,7 @@ const PhotoUploadControls = () => {
   const hasPhoto = Boolean(photoUrl);
 
   return (
-    <aside
-      aria-label="聖誕樹控制面板"
-      className="absolute left-0 bottom-0 z-10 p-4"
-    >
+    <aside aria-label="聖誕樹控制面板" className="p-4">
       <div className="flex flex-wrap items-center gap-2 rounded-xl border border-border/50 bg-background/70 p-4 shadow-lg backdrop-blur">
         <Input
           className="sr-only"

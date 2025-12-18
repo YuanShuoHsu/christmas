@@ -16,12 +16,12 @@ const Home = () => {
   }, [clearPhoto]);
 
   return (
-    <main className="relative min-h-screen w-screen overflow-hidden bg-[#e8ffe8] flex flex-col justify-center items-center">
-      <PhotoUploadControls />
-      <div className="relative flex flex-col items-center">
+    <main className="min-h-dvh flex flex-col bg-[#e8ffe8] overflow-hidden">
+      <div className="relative flex-1 flex justify-center items-center">
         <ChristmasTree />
         <DisplayNameBanner />
       </div>
+      <PhotoUploadControls />
     </main>
   );
 };
